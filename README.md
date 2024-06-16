@@ -1,2 +1,1 @@
 # CustomersService
-Spring boot application
