@@ -27,3 +27,4 @@ services:
       MYSQL_ROOT_PASSWORD: password
 networks:
   springapimysql-net:
+    driver: bridge
