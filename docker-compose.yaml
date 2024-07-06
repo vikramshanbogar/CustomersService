@@ -25,6 +25,9 @@ services:
     environment:
       MYSQL_DATABASE: customersDB
       MYSQL_ROOT_PASSWORD: password
+    volumes:
+      #local dir/files: docker dir/files
+      - ~/apps/mysqlDB:/var/lib/mysql
 networks:
   springapimysql-net:
     driver: bridge
