@@ -3,7 +3,6 @@ package com.vikram.customers;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.vikram.customers.Models.Customer;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Arrays;
