@@ -2,6 +2,7 @@ package com.vikram.customers;
 
 import com.vikram.customers.Models.Customer;
 import com.vikram.customers.Repos.CustomerRepo;
+import com.vikram.customers.Services.ApplicationConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +21,8 @@ public class CustomersApplication implements CommandLineRunner {
     @Autowired
     CustomerRepo customerRepo;
 
+@Autowired
+ApplicationConfig applicationConfig;
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,5 +30,6 @@ public class CustomersApplication implements CommandLineRunner {
         customerRepo.save(new Customer("Jane", "Doe"));
         customerRepo.save(new Customer("Bob", "Smith"));
         customerRepo.save(new Customer("Freds", "Tred"));
+        //ApplicationConfig.getSecret();
     }
 }
