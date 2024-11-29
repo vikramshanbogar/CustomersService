@@ -2,14 +2,10 @@ package com.vikram.customers;
 
 import com.vikram.customers.Models.Customer;
 import com.vikram.customers.Repos.CustomerRepo;
-import com.vikram.customers.Services.ApplicationConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class CustomersApplication implements CommandLineRunner {
@@ -21,8 +17,8 @@ public class CustomersApplication implements CommandLineRunner {
     @Autowired
     CustomerRepo customerRepo;
 
-@Autowired
-ApplicationConfig applicationConfig;
+//@Autowired
+//ApplicationConfig applicationConfig;
 
     @Override
     public void run(String... args) throws Exception {

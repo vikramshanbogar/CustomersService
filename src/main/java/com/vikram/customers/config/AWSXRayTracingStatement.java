@@ -167,7 +167,7 @@ public class AWSXRayTracingStatement {
                 
                 return subsegment;
             } catch (Exception exception) {
-                log.warn("Failed to create X-Ray subsegment for the statement execution.", exception);
+                log.warn("Failed to create X-Ray subsegment for the statement execution.{}", exception);
                 return null;
             }
         }

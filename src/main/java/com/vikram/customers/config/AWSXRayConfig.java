@@ -4,9 +4,8 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Optional;
 
-import javax.servlet.Filter;
-
 import com.amazonaws.xray.jakarta.servlet.AWSXRayServletFilter;
+import jakarta.servlet.Filter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,6 @@ import com.amazonaws.xray.AWSXRay;
 import com.amazonaws.xray.AWSXRayRecorderBuilder;
 import com.amazonaws.xray.slf4j.SLF4JSegmentListener;
 import com.amazonaws.xray.strategy.sampling.CentralizedSamplingStrategy;
-import com.anthunt.aws.spring.boot.xray.exception.ApplicationNameNullException;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -54,7 +52,7 @@ public class AWSXRayConfig {
 		log.debug("The segment name for aws xray tracking has been set to {}.", AWSXRAY_SEGMENT_NAME);
 		return new AWSXRayServletFilter(
 				Optional.ofNullable(AWSXRAY_SEGMENT_NAME)
-						.orElseThrow(()->new ExpressionException())
+						.orElseThrow(()->new ExpressionException(""))
 		);
 	}
 	
