@@ -34,11 +34,15 @@ public class CustomersController {
     }
 
     @PostMapping
-    String insertData(@RequestBody Customer customer) {
-        if (customer == null)
-            return "Data not inserted successfully";
+    String insertData(@RequestBody Customer customer) throws InterruptedException {
+     //insert 100 customers
+        for (int i = 0; i < 100; i++) {
+            Customer customer1 = new Customer("f_name" + i, "l_name" + i);
+            Thread.sleep(10000);
+            customerService.insertData(customer1);
+        }
 
-        customerService.insertData(customer);
+        // customerService.insertData(customer);
         return "Data inserted successfully";
     }
 
