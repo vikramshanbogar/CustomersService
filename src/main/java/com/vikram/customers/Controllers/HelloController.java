@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping
 public class HelloController {
 
-    @GetMapping
+    @GetMapping("/heap")
     Map<String, String> sayHello() {
 
         // Get current size of heap in bytes.
