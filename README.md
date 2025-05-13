@@ -12,3 +12,5 @@ http://localhost:8080/swagger-ui/index.html
 
 fetching AWS secrets commented out in main class
 ApplicationConfig.getSecret();
+
+...
