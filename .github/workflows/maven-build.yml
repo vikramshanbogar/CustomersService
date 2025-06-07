@@ -35,7 +35,7 @@ jobs:
     runs-on: [ oci ]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull vikramsvk1/customersservice:latest:latest
+        run: docker pull vikramsvk1/customersservice:latest
       - name: Delete old container
         run: docker rm -f vikramsvk1/customersservice:latest
       - name: Run docker container
