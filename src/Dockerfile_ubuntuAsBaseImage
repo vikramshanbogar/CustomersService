@@ -1,0 +1,39 @@
+# Start with Ubuntu base image
+FROM ubuntu:22.04
+
+# Avoid interactive prompts during package install
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install required dependencies for adding Amazon Corretto repo
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    gnupg \
+    curl
+
+# Add Amazon Corretto 21 apt repository
+RUN curl -fsSL https://apt.corretto.aws/corretto.key | gpg --dearmor | tee /usr/share/keyrings/corretto-keyring.gpg >/dev/null && \
+    echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | tee /etc/apt/sources.list.d/corretto.list
+
+# Install Amazon Corretto 21 JDK + development tools
+RUN apt-get update && apt-get install -y \
+    java-21-amazon-corretto-jdk \
+    maven \
+    git \
+    vim \
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy your Spring Boot project into the container
+COPY . /app
+
+# Optional: Build the project inside container
+RUN mvn clean package -DskipTests
+
+# Expose application port
+EXPOSE 8080
+
+# Default command — just start a shell for development
+# CMD ["/bin/bash"]
