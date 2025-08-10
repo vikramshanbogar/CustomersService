@@ -42,3 +42,27 @@ EXPOSE 22 8080
 
 # Start SSH server
 CMD ["/usr/sbin/sshd", "-D"]
+
+
+
+# Build and Run
+
+# To build the Docker image:
+# docker build -t springboot-dev-ssh .
+# docker run -d --name my-springboot-dev -p 2222:22 -p 8080:8080 springboot-dev-ssh
+# Connect IntelliJ Gateway
+# Install JetBrains Gateway (or open IntelliJ and choose Remote Development).
+
+# Add an SSH connection:
+
+# Host: localhost
+
+# Port: 2222
+
+# User: root
+
+# Password: devpassword
+
+# Once connected, choose IntelliJ IDEA Ultimate (or Community) backend.
+
+# Open /app inside the container — now you’re editing directly inside the container.
