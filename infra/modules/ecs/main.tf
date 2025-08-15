@@ -67,9 +67,9 @@ resource "aws_ecs_service" "app" {
   launch_type     = "FARGATE"
   
   network_configuration {
-    subnets         = var.subnet_ids
+    subnets         = var.private_subnet_ids
     security_groups = [aws_security_group.ecs.id]
-    assign_public_ip = true
+    assign_public_ip = false
   }
   
   load_balancer {
@@ -84,9 +84,9 @@ resource "aws_ecs_service" "app" {
 # Network Load Balancer
 resource "aws_lb" "app" {
   name               = "${var.project_name}-nlb"
-  internal           = false
+  internal           = true
   load_balancer_type = "network"
-  subnets            = var.subnet_ids
+  subnets            = var.private_subnet_ids
 }
 
 # Target Group
