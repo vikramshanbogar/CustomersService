@@ -3,10 +3,7 @@ output "nlb_dns_name" {
   value       = aws_lb.customers_service.dns_name
 }
 
-output "ecr_repository_url" {
-  description = "ECR repository URL"
-  value       = aws_ecr_repository.customers_service.repository_url
-}
+
 
 output "service_url" {
   description = "URL to access the service"

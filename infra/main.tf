@@ -144,10 +144,7 @@ resource "aws_ecs_cluster" "main" {
   name = "customers-service-cluster"
 }
 
-# ECR Repository
-resource "aws_ecr_repository" "customers_service" {
-  name = "customers-service"
-}
+
 
 # DB Subnet Group
 resource "aws_db_subnet_group" "main" {
@@ -195,7 +192,7 @@ resource "aws_ecs_task_definition" "customers_service" {
   container_definitions = jsonencode([
     {
       name  = "customers-service"
-      image = "${aws_ecr_repository.customers_service.repository_url}:latest"
+      image = "vikramsvk1/customer_service:mysql"
       
       environment = [
         {
