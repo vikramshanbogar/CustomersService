@@ -39,3 +39,9 @@ output "vpn_client_private_key" {
   value       = module.vpn.client_private_key
   sensitive   = true
 }
+
+output "vpn_ca_certificate" {
+  description = "VPN CA certificate"
+  value       = module.vpn.ca_certificate
+  sensitive   = true
+}

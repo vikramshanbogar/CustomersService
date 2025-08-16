@@ -5,7 +5,7 @@ output "client_vpn_endpoint_id" {
 
 output "client_certificate" {
   description = "Client certificate for VPN connection"
-  value       = tls_self_signed_cert.client.cert_pem
+  value       = tls_locally_signed_cert.client.cert_pem
   sensitive   = true
 }
 
@@ -15,8 +15,8 @@ output "client_private_key" {
   sensitive   = true
 }
 
-output "server_certificate" {
-  description = "Server certificate for VPN connection"
-  value       = tls_self_signed_cert.server.cert_pem
+output "ca_certificate" {
+  description = "CA certificate for VPN connection"
+  value       = tls_self_signed_cert.ca.cert_pem
   sensitive   = true
 }
