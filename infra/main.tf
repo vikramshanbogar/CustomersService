@@ -60,3 +60,12 @@ module "rds" {
   ecs_security_group_id  = module.ecs.ecs_security_group_id
   database_password      = var.db_password
 }
+
+# VPN Module
+module "vpn" {
+  source = "./modules/vpn"
+  
+  project_name      = var.project_name
+  vpc_cidr_block    = module.vpc.vpc_cidr_block
+  public_subnet_id  = module.vpc.public_subnet_1_id
+}

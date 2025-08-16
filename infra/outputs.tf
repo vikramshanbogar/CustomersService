@@ -22,3 +22,20 @@ output "database_credentials" {
   }
   sensitive = true
 }
+
+output "vpn_endpoint_id" {
+  description = "Client VPN endpoint ID"
+  value       = module.vpn.client_vpn_endpoint_id
+}
+
+output "vpn_client_certificate" {
+  description = "VPN client certificate"
+  value       = module.vpn.client_certificate
+  sensitive   = true
+}
+
+output "vpn_client_private_key" {
+  description = "VPN client private key"
+  value       = module.vpn.client_private_key
+  sensitive   = true
+}
